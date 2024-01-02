@@ -40,7 +40,7 @@ public class LoanCalc {
 	 */
 	// Side effect: modifies the class variable iterationCounter.
 	public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
-		double g = 6000;
+		double g = 1000;
 		iterationCounter = 0;
 		while (endBalance(loan, rate, n, g) > 0) {
 			g += epsilon;
@@ -57,8 +57,8 @@ public class LoanCalc {
 	 */
 	// Side effect: modifies the class variable iterationCounter.
 	public static double bisectionSolver(double loan, double rate, int n, double epsilon) {
-		double L = 6000;
-		double H = 15000;
+		double L = 1000;
+		double H = 20000;
 		double g = (L + H) / 2;
 		iterationCounter = 0;
 
