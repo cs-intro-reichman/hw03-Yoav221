@@ -1,6 +1,7 @@
 /**
  * Computes the periodical payment necessary to re-pay a given loan.
  */
+
 public class LoanCalc {
 
 	static double epsilon = 0.001; // The computation tolerance (estimation error)
@@ -11,6 +12,7 @@ public class LoanCalc {
 	 * Expects to get three command-line arguments: sum of the loan (double),
 	 * interest rate (double, as a percentage), and number of payments (int).
 	 */
+
 	public static void main(String[] args) {
 		// Gets the loan data
 		double loan = Double.parseDouble(args[0]);
@@ -57,8 +59,8 @@ public class LoanCalc {
 	 */
 	// Side effect: modifies the class variable iterationCounter.
 	public static double bisectionSolver(double loan, double rate, int n, double epsilon) {
-		double L = 1000;
-		double H = 20000;
+		double L = 0;
+		double H = loan;
 		double g = (L + H) / 2;
 		iterationCounter = 0;
 
