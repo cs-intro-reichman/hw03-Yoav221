@@ -14,7 +14,6 @@ public class LowerCase {
 
     public static String lowerCase(String s) {
         String LowerCase = "";
-
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             int ascii = ch;
@@ -27,6 +26,7 @@ public class LowerCase {
 
             }
         }
+
         return LowerCase;
     }
 }
