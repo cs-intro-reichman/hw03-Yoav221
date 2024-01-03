@@ -24,8 +24,8 @@ public class LowerCase {
                 LowerCase = LowerCase + ((char) (asciiLower));
             } else {
                 LowerCase = LowerCase + ch;
-            }
 
+            }
         }
         return LowerCase;
     }
