@@ -11,8 +11,22 @@ public class LowerCase {
      * except that all the upper-case letters are converted to lower-case letters.
      * Non-letter characters are left as is.
      */
+
     public static String lowerCase(String s) {
-        String LowerCase = s.toLowerCase();
+        String LowerCase = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            int ascii = ch;
+
+            if (65 <= ascii && ascii <= 90) {
+                int asciiLower = ascii + 32;
+                LowerCase = LowerCase + ((char) (asciiLower));
+            } else {
+                LowerCase = LowerCase + ch;
+            }
+
+        }
         return LowerCase;
     }
 }
