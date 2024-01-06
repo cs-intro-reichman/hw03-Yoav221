@@ -11,7 +11,7 @@ public class Calendar1 {
 
 		int debugDaysCounter = 0;
 		while (true) {
-			advance();
+			// advance();
 			debugDaysCounter++;
 			if (debugDaysCounter == 365) {
 				break;
