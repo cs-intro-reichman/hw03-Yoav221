@@ -1,15 +1,25 @@
 
 public class Calendar {
+    static int year = 1900;
+    static int nDaysInMonth = 31; // Number of days in January
     static int dayOfMonth = 1;
     static int month = 1;
     static int dayOfWeek = 2; // 1.1.1900 was a Monday
-    static int nDaysInMonth = 31; // Number of days in January
     static int SundaysCount = 0;
     static boolean isSunday;
 
     public static void main(String args[]) {
-        int year = Integer.parseInt(args[0]);
-        advance(year);
+        int GivenYear = Integer.parseInt(args[0]);
+        while (year <= GivenYear) {
+            if (year == GivenYear) {
+                if (dayOfWeek != 1) {
+                    System.out.println(dayOfMonth + "/" + month + "/" + year);
+                } else {
+                    System.out.println(dayOfMonth + "/" + month + "/" + year + " " + "Sunday");
+                }
+            }
+            advance();
+        }
     }
     //// Write the necessary ending code here
 
@@ -17,25 +27,25 @@ public class Calendar {
     // If the month changes, sets the number of days in this month.
     // Side effects: changes the static variables dayOfMonth, month, year,
     // dayOfWeek, nDaysInMonth.
-    private static void advance(int year) {
-
-        for (int m = month; m <= 12; m++) {
-            for (int d = dayOfMonth; d <= nDaysInMonth(m, year); d++) {
-
-                if (dayOfWeek == 1) {
-                    System.out.println(d + "/" + m + "/" + year + " Sunday");
-                } else {
-                    System.out.println(d + "/" + m + "/" + year);
-                }
-
-                dayOfWeek++;
-                if (dayOfWeek == 8) {
-                    dayOfWeek = 1;
-                }
-            }
-
+    private static void advance() {
+        if (dayOfWeek < 7) {
+            dayOfWeek++;
+        } else {
+            dayOfWeek = 1;
         }
-
+        if (dayOfMonth < nDaysInMonth(month, year)) {
+            dayOfMonth++;
+        } else {
+            dayOfMonth = 1;
+            if (month < 12) {
+                month++;
+            } else// begining of a new year
+            {
+                month = 1;
+                year++;
+                dayOfMonth = 1;
+            }
+        }
     }
 
     // Returns true if the given year is a leap year, false otherwise.
