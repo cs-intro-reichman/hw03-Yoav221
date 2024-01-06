@@ -10,13 +10,11 @@ public class Calendar1 {
 	public static void main(String args[]) {
 
 		int debugDaysCounter = 0;
-		while (true) {
-			// advance();
-			debugDaysCounter++;
-			if (debugDaysCounter == 365) {
-				break;
-			}
-		}
+
+		advance();
+		System.out.println("During the 20th century, " + SundaysCount + " Sundays fell on the first day of the month");
+		debugDaysCounter++;
+
 		//// Write the necessary ending code here
 	}
 
@@ -31,9 +29,12 @@ public class Calendar1 {
 				for (int d = dayOfMonth; d <= nDaysInMonth(m, y); d++) {
 
 					if (dayOfWeek == 1) {
-						System.out.println(d + "/" + m + "/" + y + " Sunday");
+						// System.out.println(d + "/" + m + "/" + y + " Sunday");
+						if (d == 1) {
+							SundaysCount++;
+						}
 					} else {
-						System.out.println(d + "/" + m + "/" + y);
+						// System.out.println(d + "/" + m + "/" + y);
 					}
 
 					dayOfWeek++;
