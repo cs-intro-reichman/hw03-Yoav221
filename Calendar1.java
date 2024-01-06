@@ -9,6 +9,8 @@ public class Calendar1 {
 	static int year = 1900;
 	static int dayOfWeek = 2; // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
+	static int SundaysCount = 0;
+	static boolean isSunday;
 
 	/**
 	 * Prints the calendars of all the years in the 20th century. Also prints the
@@ -31,7 +33,7 @@ public class Calendar1 {
 			debugDaysCounter++;
 			//// If you want to stop the loop after n days, replace the condition of the
 			//// if statement with the condition (debugDaysCounter == n)
-			if (false) {
+			if (debugDaysCounter == 365) {
 				break;
 			}
 		}
@@ -43,6 +45,26 @@ public class Calendar1 {
 	// Side effects: changes the static variables dayOfMonth, month, year,
 	// dayOfWeek, nDaysInMonth.
 	private static void advance() {
+
+		for (int y = year; y <= 1999; y++) {
+			for (int m = month; m <= 12; m++) {
+				for (int d = dayOfMonth; d <= nDaysInMonth(m, y); d++) {
+
+					if (dayOfWeek == 1) {
+						System.out.println(d + "/" + m + "/" + y + " Sunday");
+					} else {
+						System.out.println(d + "/" + m + "/" + y);
+					}
+
+					dayOfWeek++;
+					if (dayOfWeek == 8) {
+						dayOfWeek = 1;
+					}
+				}
+
+			}
+
+		}
 
 	}
 
